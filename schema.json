@@ -1,0 +1,62 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://docs.budibase.com",
+    "friendlyName": "Freescout - Conversations",
+    "type": "API",
+    "description": "Interface with Freescout Conversation in Budibase",
+    "datasource": {
+      "url": {
+        "type": "string",
+        "required": true
+      },
+      "apikey": {
+        "type": "password",
+        "required": true
+      }
+    },
+    "query": {
+      "create": {
+        "type": "json"
+      },
+      "read": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "display": "Conversation ID (blank for all)",
+            "type": "string",
+            "required": false
+          },
+          "mailboxID": {
+            "display": "Mailbox ID (blank for all)",
+            "type": "string",
+            "required": false
+          },
+          "pageLimit": {
+            "display": "Page Limit (if no ID)",
+            "type": "number",
+            "required": false
+          },
+          "params": {
+            "display": "Query Parameters",
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "update": {
+        "type": "json"
+      },
+      "delete": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    }
+  }
+}
