@@ -72,10 +72,14 @@ class CustomIntegration implements IntegrationBase {
       },
     }
 
+    // handle single conversation
     if (query.id) {
-      return await this.request(url.toString(), opts);
+      let conversation = await this.request(url.toString(), opts);
+      conversation.threads = conversation._embedded.threads;
+      return conversation;
     }
 
+    // handle multiple conversations
     const conversations: any[] = [];
     let totalPages = 1;
 
